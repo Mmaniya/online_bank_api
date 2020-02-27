@@ -10,14 +10,14 @@ $cust_id = $request->cust_id;
 $cus_accountno = $request->cus_accountno;
 $cus_pincode = $request->cus_pincode;
 $cus_amount = $request->cus_amount;
-$addamount = $request->addamount;
+$removeamount = $request->removeamount;
 
 
 $sql = "SELECT * FROM `cust_info` where `cust_id`='$cust_id'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while($new = $result->fetch_assoc()) {
-        $neamt = $new['cus_amount'] + $addamount;
+        $neamt = $new['cus_amount'] - $removeamount;
     }
   
 }
@@ -26,13 +26,13 @@ $sqli = "UPDATE `cust_info` SET `cus_amount`='$neamt' WHERE `cust_id`='$cust_id'
 $results = $conn->query($sqli); 
 
 if($results){
-    $value = array("result"=>"Deposit Successfully.!");    
+    $value = array("result"=>"Widtraw Successfully.!");    
     // Use json_encode() function 
     $json = json_encode($value); 
     // Display the output 
     echo($json);
     }else{
-        $value = array("result"=>"Deposit Failed.!");    
+        $value = array("result"=>"Widtraw Failed.!");    
         // Use json_encode() function 
         $json = json_encode($value); 
         // Display the output 
