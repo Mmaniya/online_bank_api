@@ -21,10 +21,9 @@ if ($result->num_rows > 0) {
     }
   
 }
-
+if($neamt >= '0'){
 $sqli = "UPDATE `cust_info` SET `cus_amount`='$neamt' WHERE `cust_id`='$cust_id' AND `cus_accountno`='$cus_accountno' AND `cus_pincode`='$cus_pincode'";
 $results = $conn->query($sqli); 
-
 if($results){
     $value = array("result"=>"Widtraw Successfully.!");    
     // Use json_encode() function 
@@ -38,4 +37,9 @@ if($results){
         // Display the output 
         echo($json);
     }
+}else{
+    $value = array("result"=>"Insufficient Balance.!"); 
+    $json = json_encode($value); 
+    echo($json);
+}
 
