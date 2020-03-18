@@ -16,11 +16,12 @@ if ($result->num_rows > 0) {
             $cus_id = $new['cust_id'];
             $cus_name = $new['cus_name'];
             $cus_accountno = $new['cus_contactno'];
+            $cust_status = $new['cus_status'];
     }
 }
     $randIP = "".mt_rand(0,255).".".mt_rand(0,255).".".mt_rand(0,255).".".mt_rand(0,255);
 
-    $sql1 = "INSERT INTO `cust_block`(`cust_id`, `cust_name`, `cust_ac`,`block_ip`) VALUES ('$cus_id','$cus_name','$cus_accountno','$randIP')";
+     $sql1 = "INSERT INTO `cust_block`(`cust_id`, `cust_name`, `cust_ac`,`block_ip`,`cust_status`) VALUES ('$cus_id','$cus_name','$cus_accountno','$randIP','$cust_status')";
     $result1 = $conn->query($sql1); 
 
     if($result1){

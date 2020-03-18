@@ -11,9 +11,10 @@ $cus_accountno = $request->cus_accountno;
 $cus_pincode = $request->cus_pincode;
 $cus_amount = $request->cus_amount;
 $addamount = $request->addamount;
+$cus_bank = $request->cus_bank;
 
 
-$sql = "SELECT * FROM `cust_info` where `cust_id`='$cust_id'";
+$sql = "SELECT * FROM `cust_info` where `cust_id`='$cust_id' AND `cus_bank`='$cus_bank' AND `cus_pincode`='$cus_pincode'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while($new = $result->fetch_assoc()) {

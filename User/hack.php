@@ -7,10 +7,8 @@ $data = file_get_contents("php://input");
 $request = json_decode($data);
 
 $cust_id = $request->cust_id;
-$cust_bank = $request->cust_bank;
-$pincode = $request->cust_pin;
 
-$sql = "SELECT * FROM `cust_info` where `cust_id`='$cust_id' AND `cus_bank`='$cust_bank' AND `cus_pincode`='$pincode'";
+$sql = "SELECT * FROM `cust_info` where `cust_id`='$cust_id'";
 $result = $conn->query($sql);
 $rows = array();
 if ($result->num_rows > 0) {

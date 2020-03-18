@@ -7,7 +7,7 @@ $data = file_get_contents("php://input");
 
 $request = json_decode($data);
 
-$sql = "SELECT * FROM `cust_block`";
+$sql = "SELECT * FROM `cust_block` WHERE `cust_id`!= ''";
 $result = $conn->query($sql);
 $rows = array();
 if ($result->num_rows > 0) {
